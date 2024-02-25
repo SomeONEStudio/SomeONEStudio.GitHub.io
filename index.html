@@ -1,9 +1,16 @@
-<!DOCTYPE html><html><head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+<div class="yes">SomeONE</div>
+<div class="divider-container">The Creative Team of Games&Network.</div> 
+<div class="no">Studio</div>
+-->
+<!DOCTYPE html>
+<!-- saved from url=(0021)https://lowest.world/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="https://use.typekit.net/pmd4rkg.css">
+    <link rel="stylesheet" href="./__files/pmd4rkg.css">
     <title>﻿</title>
     <style>
       body {
@@ -35,11 +42,11 @@
             -ms-transition: 1.347s -ms-filter linear;
              -o-transition: 1.347s -o-filter linear;
                 transition: 1.347s filter linear, 0.3s -webkit-filter linear;
-        -webkit-animation: blur 1.1s;
-           -moz-animation: blur 1.1s;
-            -ms-animation: blur 1.1s;
-             -o-animation: blur 1.1s;
-                animation: blur 1.1s;
+        -webkit-animation: blur 2.17s;
+           -moz-animation: blur 2.17s;
+            -ms-animation: blur 2.17s;
+             -o-animation: blur 2.17s;
+                animation: blur 2.17s;
       }
       
       .container.animated{
@@ -57,15 +64,34 @@
         height: 227px;
         width: 100%;
       }
-      .title-containter {
+
+      .top {
+        background-image: url('./assets/top-texture.png');
+        position: absolute;
+        top: 0;
+      }
+      
+      .bottom {
+        background-image: url('./assets/bottom-texture.png');
+        position: absolute;
+        bottom: 0;
+      }
+      .are-you-alone-containter {
         width: 100%;
         position: absolute;
         bottom: 6%;
       }
-      .title {
+      .are-you-alone {
         color: #fff;
         position: relative;
         margin: 0 auto;
+      }
+      .are-you-alone img {
+        -webkit-transform: scale(0.8); /* Saf3.1+, Chrome */
+           -moz-transform: scale(0.8); /* FF3.5+ */
+            -ms-transform: scale(0.8); /* IE9 */
+             -o-transform: scale(0.8); /* Opera 10.5+ */
+                transform: scale(0.8);
       }
 
       img.divider {
@@ -143,7 +169,7 @@
       .divider-container {
         position: relative;
         overflow: visible;
-			font-family:Arial,Helvetica,sans-serif;
+        font-family: kingsgmb;
       }
       
       .divider-container:before {
@@ -152,7 +178,6 @@
         width: 80%;
         height: 120px;
         z-index: -1;
-        background: url('no-shadow.png') 0 0 no-repeat;
         background-position: center;
         background-size: cover;
         top: 15px;
@@ -187,7 +212,7 @@
       }
       
       @media screen and (max-device-width: 812px) and (orientation: portrait) {
-        .title img {
+        .are-you-alone img {
           -webkit-transform: scale(0.4); /* Saf3.1+, Chrome */
              -moz-transform: scale(0.4); /* FF3.5+ */
               -ms-transform: scale(0.4); /* IE9 */
@@ -227,7 +252,7 @@
           width: 40%;
           height: 60px;
           z-index: -1;
-          background: url('no-shadow.png') 0 0 no-repeat;
+          background: url('./assets/no-shadow.png') 0 0 no-repeat;
           background-position: center;
           background-size: cover;
           top: 13px;
@@ -235,19 +260,86 @@
         }
       }
     </style>
-  <style type="text/css">* {user-select: auto !important; -webkit-user-select: auto !important;}</style><input type="hidden" id="inject_idm_text_selection"></head>
+  </head>
 
   <body data-new-gr-c-s-check-loaded="14.1028.0" data-gr-ext-installed="">
     <div class="container" style="filter: opacity(1);">
       <div class="answer-container">
         <div class="answer">
-          <div class="yes">SomeONE</div>
-          <div class="divider-container">The Creative Team of Games&Network.</div> 
-          <div class="no">Studio</div>
-        </div>
+            <div class="yes">SomeONE</div>
+            <div class="divider-container">The Creative Team of Games&Network.</div> 
+            <div class="no">Studio</div>
+          </div>
       </div>
-      </div>
+      <div class="texture top"></div>
+      <div class="texture bottom"></div>
     </div>
-  <script>
+  
+  <script>  
+    var clickedYes = false;
+    var clickedNo = false;
+    var dividerContainer = document.querySelector('.divider-container');
+    var yes = document.querySelector(".yes");
+    var no = document.querySelector(".no");
+
+    yes.addEventListener("mouseover", mOver, false);
+    yes.addEventListener("mouseout", mOut, false);
+    yes.addEventListener("click", mClicked, false);
+
+    no.addEventListener("mouseover", mOverNo, false);
+    no.addEventListener("mouseout", mOutNo, false);
+    no.addEventListener("click", mClickedNo, false);
+
+    var container = document.querySelector(".container");
+    setTimeout(function() {
+      container.style.filter = "opacity(1)";
+      eraseCookie('isBlackout');
+    }, 300);
+
+    function mClicked() {
+      if (clickedYes) {
+        yes.classList.remove("clicked")
+      } else {
+        yes.classList.add("clicked")
+        no.classList.remove("clicked")
+        setTimeout(function() {
+          window.location.href = "https://modrinth.com/user/SomeONE_Studio";
+        }, 347);
+      }
+      clickedYes = !clickedYes;
+      clickedNo = !clickedYes;
+    }
+
+    function mOver() {
+      yes.classList.add("hovered")
+    }
+
+    function mOut() {  
+      yes.classList.remove("hovered")
+    }
+
+    function mClickedNo() {
+      if (clickedNo) {
+        no.classList.remove("clicked")
+      } else {
+        no.classList.add("clicked")
+        yes.classList.remove("clicked")
+        setTimeout(function() {
+          window.location.href = "https://github.com/SomeONEStudio";
+        }, 347);
+      }
+      clickedNo = !clickedNo;
+      clickedYes = !clickedNo;
+    }
+
+    function mOverNo() {
+      no.classList.add("hovered")
+      dividerContainer.classList.add("hovered")
+    }
+
+    function mOutNo() {  
+      no.classList.remove("hovered")
+      dividerContainer.classList.remove("hovered")
+    }
   </script>
 </body></html>
